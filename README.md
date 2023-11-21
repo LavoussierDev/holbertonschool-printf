@@ -12,7 +12,7 @@ repository you will also learn important fundementals,
 /** Insert GIF Here **/
 
 [Installation]
-- Git clone git@github.com:LavoussierDev/holbertonschool-printf.git
+- ``Git clone git@github.com:LavoussierDev/holbertonschool-printf.git``
 - 
 /** Insert GIF Here **/
 
