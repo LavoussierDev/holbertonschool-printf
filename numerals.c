@@ -4,56 +4,69 @@
 #include <unistd.h>
 
 int _printf(const char *format, ...) {
-	int num_print = 0;
-	int len;
-	char *str;
+	 int num_print = 0;
+	 int len;
+	 char *str;
 
-	va_list args;
-	va_start(args, format);
+	 va_list args;
 
-	while (*format != '\0') {
-		if (*format == '%') {
-			format++;
+	 va_start(args, format);
 
-			if (*format == 'd' || *format == 'i') {
+	 while (*format != '\0')
+	 {
+
+		 if (*format == '%')
+		 {
+			 format++;
+
+			 if (*format == 'd' || *format == 'i')
+			 {
 
 				num_print = va_arg(args, int);
 
+
 				str = malloc(12);
 
-				if (str == NULL) {
-					return -1;
-				}
+
+				 if (str == NULL)
+				 {
+					 return -1;
+				 }
+
 
 				len = sprintf(str, "%d", num_print);
 
 				write(1, str, len);
 
-				num_print += len;
+				 num_print += len;
 
-				free(str);
+				 free(str);
+
 			}
 
-			else {
-
-				write(1, "%", 1);
+			else
+			{
+				 write(1, "%", 1);
 
 				write(1, format, 1);
 
 				num_print += 2;
+
 			}
-		}
+		 }
 
-		else {
+		 else {
 
-			write(1, format, 1);
+			 write(1, format, 1);
 
-			num_print++;
-		}
+			 num_print++;
 
-		format++;
-	}
+		 }
 
-	va_end(args);
-	return num_print;
+		 format++;
+
+	 }
+
+	 va_end(args);
+	 return num_print;
 }
