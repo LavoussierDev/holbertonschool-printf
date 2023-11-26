@@ -1,4 +1,7 @@
 #include "main.h"
+#include <stdlib.h>
+#include <stdarg.h>
+#include <unistd.h>
 
 /**
  * _printf - Prints characters, converts format specifier,
@@ -10,19 +13,21 @@
  * @format: pointer to a string, contains format specifiers,
  * allows us to print said character
  *
+ * @c: input of given character
+ *
  */
 
-void _putchar(char c) /* implicit delcaration error */
+void _putchar(char c) /* outputs a chartacter, word or an intenger to a stram */
 {
 	write(1, &c, 1);
 }
 
 int _printf(const char *format, ...)
 {
-	va_list args;
-	va_start(args, format);
-
+	va_list arg;
 	int count = 0;
+	va_start(arg, format);
+
 	/* keeps track of the number of characters printed */
 
 	while (*format != '\0')
@@ -30,7 +35,7 @@ int _printf(const char *format, ...)
 		if (*format == '%' && *(format + 1) == 'c')
 		{
             /* Handle %c - print a character */
-			char ch = (char)va_arg(args, int);
+			char ch = (char)va_arg(arg, int);
 			write(1, &ch, 1);
 			count++;
 			format += 2;
@@ -39,7 +44,7 @@ int _printf(const char *format, ...)
 		else if (*format == '%' && *(format + 1) == 's')
 		{
 			/* Handle %s - print a string */
-			char *str = va_arg(args, char *);
+			char *str = va_arg(arg, char *);
 			while (*str != '\0')
 			{
 				write(1, str, 1);
@@ -63,8 +68,7 @@ int _printf(const char *format, ...)
 			format++;
 		}
 	}
+	va_end(arg);
 
-	va_end(args);
-
-	return count;
+	return (count);
 }
