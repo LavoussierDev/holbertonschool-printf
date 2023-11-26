@@ -17,13 +17,12 @@ repository you will also learn important fundementals.
 /** Insert GIF Here **/
 
 ## How to use printf
-<p>
-1. Compile the cloned repository, compile it using
+- Compile the cloned repository, compile it using
 ``gcc -Wall -Werror -Wextra -pedantic -std=gnu89 -Wno-format *.c``
-2. Make sure file in ends with .c extension.
-3. Include "main.h" in said file & simply use \_putchar
+- Make sure file in ends with .c extension.
+- Include "main.h" in said file & simply use \_putchar
 like any other function.
-</p>
+
 
 
 ## Restrictions & Challanges
