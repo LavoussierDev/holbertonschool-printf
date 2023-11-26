@@ -1,0 +1,62 @@
+.TH _PRINTF 3 "2023-11-21" "1.0" "User Commands"
+.SH NAME
+\_printf \- Custom printf function
+
+.SH SYNOPSIS
+.B \_printf [format, ...]
+
+.SH DESCRIPTION
+The \_printf function produces output according to a format. The format string is composed of zero or more directives. A directive begins with a '%' character, followed by a conversion specifier. The following conversion specifiers are supported:
+
+.TP
+.B c
+Print a character.
+
+.TP
+.B s
+Print a string of characters.
+
+.TP
+.B d, i
+Print an integer in decimal representation.
+
+.TP
+.B %
+Print a '%' character.
+
+Additional arguments may be required based on the conversion specifiers used. You don’t have to handle field width, precision, or length modifiers.
+
+.SH PARAMETERS
+.TP
+.B format
+The format string containing conversion specifiers.
+
+.TP
+.B Additional arguments
+Variable number of arguments corresponding to the specifiers.
+
+.SH RETURN VALUE
+Number of characters printed (excluding the null byte used to end output to strings).
+
+.SH EXAMPLES
+The following examples demonstrate the use of \_printf:
+
+.EX
+\_printf("Character: [%c]\n", 'H');
+\_printf("String: [%s]\n", "Hello, World!");
+\_printf("Number: [%d]\n", 42);
+\_printf("Percent: [%%]\n");
+.EN
+
+.SH SEE ALSO
+.B printf(3)
+
+.SH AUTHOR
+Koral Rivera Ocasio
+
+.SH NOTES
+This is a custom implementation of printf.
+
+.SH BUGS
+No known bugs.
+
