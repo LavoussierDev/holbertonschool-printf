@@ -1,6 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdarg.h>
 #include "main.h"
 
 /**
@@ -25,46 +22,49 @@ int _printf(const char *format, ...)
 	va_list args;
 	va_start(args, format);
 
-	while (*format != '\0') /* Needs to be placed in the numericals file */
+	int count = 0;
+	/* keeps track of the number of characters printed */
+
+	while (*format != '\0')
 	{
-		if (*format == '%' && *(format + 1) == 'd')
+		if (*format == '%' && *(format + 1) == 'c')
 		{
-			int value = va_arg(args, int);
-
-            /* Print the integer digit by digit */
-			int divisor = 1;
-			while (value / divisor > 9)
-			{
-				divisor *= 10;
-            }
-			while (divisor != 0)
-			{
-				_putchar('0' + value / divisor);
-				value %= divisor;
-				divisor /= 10;
-			}
-
-				format += 2; /* Move past '%d' */
-        }
+            /* Handle %c - print a character */
+			char ch = (char)va_arg(args, int);
+			write(1, &ch, 1);
+			count++;
+			format += 2;
+			/* Move past '%c' */
+		}
 		else if (*format == '%' && *(format + 1) == 's')
 		{
+			/* Handle %s - print a string */
 			char *str = va_arg(args, char *);
-
-            /* Print each character of the string */
 			while (*str != '\0')
 			{
-				_putchar(*str);
+				write(1, str, 1);
 				str++;
-            }
-
+				count++;
+			}
 			format += 2; /* Move past '%s' */
-        } else
+		}
+		else if (*format == '%' && *(format + 1) == '%')
 		{
-			_putchar(*format);
+			/* Handle %% - print a percent sign */
+			write(1, "%", 1);
+			count++;
+			format += 2; /* Move past '%%' */
+		}
+		else
+		{
+			/* Print ordinary characters */
+			write(1, format, 1);
+			count++;
 			format++;
 		}
 	}
 
 	va_end(args);
-	return (0); /* return could potentially be changed */
+
+	return count;
 }
