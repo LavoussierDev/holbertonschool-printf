@@ -32,14 +32,13 @@ int _printf(const char *format, ...)
 	va_list arg;
 	int count = 0;
 
-	if (format == NULL)
-	{
-		return (1);
-	}
-
 	va_start(arg, format); /* keeps track of the number of characters printed */
 	while (*format != '\0')
 	{
+		if (format == NULL)
+	{
+		return (1);
+	}
 		if (*format == '%' && *(format + 1) == 'c')
 		{	/* Handle %c - print a character */
 			char ch = (char)va_arg(arg, int);
@@ -63,8 +62,7 @@ int _printf(const char *format, ...)
 		}
 		else
 		{	/* Print ordinary characters */
-			write(1, format, 1);
-			count++, format++;
+			write(1, format, 1), count++, format++;
 		}
 	}
 	va_end(arg);
