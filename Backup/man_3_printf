@@ -1,0 +1,110 @@
+.TH _printf(3)
+
+.Sh NAME
+.B _printf
+- allows to print characters, similar to the printf(3) function from the standard library.
+
+.SH SYNOPSIS
+.B _printf
+.RB {| format |}
+.RB [| arguments ... |]
+
+.SH DESCRIPTION
+.B _printf
+formats and prints arguments to the standard output stdout. The use of the utility is same as the printf function
+.P which is a part of the C standard library <stdio.h>:
+
+.RS
+.nf
+%c to print a single character
+%s to ptint a string
+%d & %i to print a a signed
+
+
+.SH OBJECT
+.TP
+.B -^-a1|-arg1 <arg1_value>
+Provide arg1_value. Must be fIintegerfR. Provide more hint for the user related to arg1_value
+
+.TP
+.B -^-a2|-arg2 <arg2_value>
+Provide arg2_value. Must be fIintegerfR. Provide more hint for the user related to arg2_value
+
+.TP
+.B -^-a3|-arg3 "value1,value2,value3,.."
+
+.TP
+Different man page examples formats
+
+.PP
+.B
+Display in normal format with regular TAB using .RS and TAB value of 1.2i
+
+.RS 1.2i
+.PP
+.I TEAM1
+.B -
+team1_value1, team1_value2
+.PP
+.I TEAM2
+.B -
+team2_value1, team2_value2
+.RE
+
+.TE
+.RE
+
+.SH OPTIONS
+.IP "fB--arg4fP <arg4_value>"
+Put description for argument 4 value. The is optional argument.
+
+.IP "fB-h|--helpfP"
+Prints help
+
+.SH FILES
+.TP
+.I
+/usr/bin/_printf
+
+.SH EXAMPLES
+.TP
+.BI _putchar --arg1  my_arg1  --arg4  'team1_value1,team2_value1'
+.TP
+.PP
+Run _putchar with my_arg1 value for team1 value
+.TP
+.BI _putchar --arg2  my_arg2  --arg4  'team2_value1,team2_value2'
+.TP
+.PP
+Run _putchar with my_arg2 value for team2 value
+
+
+.SH EXIT STATUS
+.TP
+.B
+0
+Success
+
+.TP
+.B
+1
+Success but reboot required
+
+.TP
+.B
+2
+Success but no reboot required
+
+.SH SEE ALSO
+.BR printf (3),
+.BR putchar (3),
+_printf (3)
+
+.SH COPYRIGHT
+.PP
+Copyright 2023 LavoussierDev. All rights reserved
+https://github.com/LavoussierDev
+
+.SH CREDITS
+.PP
+

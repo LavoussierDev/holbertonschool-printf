@@ -1,110 +1,63 @@
-.TH _printf(3)
-
-.Sh NAME
-.B _printf
-- allows to print characters, similar to the printf(3) function from the standard library.
+.TH _PRINTF 3 "2023-11-21" "1.0" "User Commands"
+.SH NAME
+\_printf \- Custom printf function
 
 .SH SYNOPSIS
-.B _printf
-.RB {| format |}
-.RB [| arguments ... |]
+.B \_printf [format, ...]
 
 .SH DESCRIPTION
-.B _printf
-formats and prints arguments to the standard output stdout. The use of the utility is same as the printf function
-.P which is a part of the C standard library <stdio.h>:
-
-.RS
-.nf
-%c to print a single character
-%s to ptint a string
-%d & %i to print a a signed
-
-
-.SH OBJECT
-.TP
-.B -^-a1|-arg1 <arg1_value>
-Provide arg1_value. Must be fIintegerfR. Provide more hint for the user related to arg1_value
+The \_printf function produces output according to a format. The format string is composed of zero or more directives. A directive begins with a '%' character, followed by a conversion specifier. The following conversion specifiers are supported:
 
 .TP
-.B -^-a2|-arg2 <arg2_value>
-Provide arg2_value. Must be fIintegerfR. Provide more hint for the user related to arg2_value
+.B c
+Print a character.
 
 .TP
-.B -^-a3|-arg3 "value1,value2,value3,.."
+.B s
+Print a string of characters.
 
 .TP
-Different man page examples formats
+.B d, i
+Print an integer in decimal representation.
 
-.PP
-.B
-Display in normal format with regular TAB using .RS and TAB value of 1.2i
-
-.RS 1.2i
-.PP
-.I TEAM1
-.B -
-team1_value1, team1_value2
-.PP
-.I TEAM2
-.B -
-team2_value1, team2_value2
-.RE
-
-.TE
-.RE
-
-.SH OPTIONS
-.IP "fB--arg4fP <arg4_value>"
-Put description for argument 4 value. The is optional argument.
-
-.IP "fB-h|--helpfP"
-Prints help
-
-.SH FILES
 .TP
-.I
-/usr/bin/_printf
+.B %
+Print a '%' character.
+
+Additional arguments may be required based on the conversion specifiers used. You don’t have to handle field width, precision, or length modifiers.
+
+.SH PARAMETERS
+.TP
+.B format
+The format string containing conversion specifiers.
+
+.TP
+.B Additional arguments
+Variable number of arguments corresponding to the specifiers.
+
+.SH RETURN VALUE
+Number of characters printed (excluding the null byte used to end output to strings).
 
 .SH EXAMPLES
-.TP
-.BI _putchar --arg1  my_arg1  --arg4  'team1_value1,team2_value1'
-.TP
-.PP
-Run _putchar with my_arg1 value for team1 value
-.TP
-.BI _putchar --arg2  my_arg2  --arg4  'team2_value1,team2_value2'
-.TP
-.PP
-Run _putchar with my_arg2 value for team2 value
+The following examples demonstrate the use of \_printf:
 
-
-.SH EXIT STATUS
-.TP
-.B
-0
-Success
-
-.TP
-.B
-1
-Success but reboot required
-
-.TP
-.B
-2
-Success but no reboot required
+.EX
+\_printf("Character: [%c]\n", 'H');
+\_printf("String: [%s]\n", "Hello, World!");
+\_printf("Number: [%d]\n", 42);
+\_printf("Percent: [%%]\n");
+.EN
 
 .SH SEE ALSO
-.BR printf (3),
-.BR putchar (3),
-_printf (3)
+.B printf(3)
 
-.SH COPYRIGHT
-.PP
-Copyright 2023 LavoussierDev. All rights reserved
-https://github.com/LavoussierDev
+.SH AUTHOR
+Koral Rivera Ocasio
+Onil Rodriguez
 
-.SH CREDITS
-.PP
+.SH NOTES
+This is a custom implementation of printf.
+
+.SH BUGS
+No known bugs.
 
