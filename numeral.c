@@ -13,7 +13,7 @@
 
 int _printf(const char *format, ...)
 {
-	// Initialize variables
+	/* Initialize variables */
 
 	int num_print = 0;
 	int len;
