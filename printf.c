@@ -37,7 +37,7 @@ int _printf(const char *format, ...)
 	{
 		if (format == NULL)
 	{
-		return (1);
+		return (-1);
 	}
 		if (*format == '%' && *(format + 1) == 'c')
 		{	/* Handle %c - print a character */
