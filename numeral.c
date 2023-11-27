@@ -13,15 +13,15 @@
 
 int _printf(const char *format, ...)
 {
-	/* Initialize variables */
-
+	va_list args;
 	int num_print = 0;
 	int len;
 	char *str;
 
-
-	va_list args;
 	va_start(args, format);
+
+	/* Initialize variables */
+
 
 
 	while (*format != '\0')
