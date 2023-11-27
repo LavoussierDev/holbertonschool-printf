@@ -32,6 +32,11 @@ int _printf(const char *format, ...)
 	va_list arg;
 	int count = 0;
 
+	if (format == NULL)
+	{
+		return (1);
+	}
+
 	va_start(arg, format); /* keeps track of the number of characters printed */
 	while (*format != '\0')
 	{
@@ -39,8 +44,7 @@ int _printf(const char *format, ...)
 		{	/* Handle %c - print a character */
 			char ch = (char)va_arg(arg, int);
 
-			write(1, &ch, 1);
-			count++, format += 2; /* Move past '%c' */
+			write(1, &ch, 1), count++, format += 2; /* Move past '%c' */
 		}
 		else if (*format == '%' && *(format + 1) == 's')
 		{	/* Handle %s - print a string */
@@ -48,8 +52,7 @@ int _printf(const char *format, ...)
 
 			while (*str != '\0')
 			{
-				write(1, str, 1);
-				str++, count++;
+				write(1, str, 1), str++, count++;
 			}
 			format += 2; /* Move past '%s' */
 		}
