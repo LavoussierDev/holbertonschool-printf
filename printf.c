@@ -33,14 +33,13 @@ int _printf(const char *format, ...)
 	int count = 0; /* keeps track of the number of characters printed */
 
 
-	va_start(arg, format); 	while (*format != '\0')
+	va_start(arg, format);
 	{
-		if (!format || (format[0] == '%' && format [1] == '\0'))
-	{
-		return (-1); /* returns -1 if true */
-	}
+		if (!format || (format[0] == '%' && format [1]))
+			return (-1); /* returns -1 if true */
+
 		if (*format == '%' && *(format + 1) == 'c')
-		{	/* Handle %c - print a character */
+		{/* Handle %c - print a character */
 			char ch = (char)va_arg(arg, int);
 
 			write(1, &ch, 1), count++, format += 2; /* Move past '%c' */
