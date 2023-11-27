@@ -30,14 +30,14 @@ void _putchar(char c)
 int _printf(const char *format, ...)
 {
 	va_list arg;
-	int count = 0;
+	int count = 0; /* keeps track of the number of characters printed */
 
-	va_start(arg, format); /* keeps track of the number of characters printed */
-	while (*format != '\0')
+
+	va_start(arg, format); 	while (*format != '\0')
 	{
-		if (format == NULL)
+		if (format == NULL || (format[0] == '%' && format [1] == '\0'))
 	{
-		return (-1);
+		return (-1); /* returns -1 if true */
 	}
 		if (*format == '%' && *(format + 1) == 'c')
 		{	/* Handle %c - print a character */

@@ -5,20 +5,21 @@
 - allows to print characters, similar to the printf(3) function from the standard library.
 
 .SH SYNOPSIS
-.B test_script
-.RB {| OBJECT |}
-.RB [| OPTIONS |]
+.B _printf
+.RB {| format |}
+.RB [| arguments ... |]
 
 .SH DESCRIPTION
 .B _printf
-formats and prints arguments, the format is a character string, those characters can be ..:
+formats and prints arguments to the standard output stdout. The use of the utility is same as the printf function
+.P which is a part of the C standard library <stdio.h>:
 
 .RS
 .nf
-- Performs task 1
-- Performs task 2
-- Performs task 3
-- Performs task 4
+%c to print a single character
+%s to ptint a string
+%d & %i to print a a signed
+
 
 .SH OBJECT
 .TP
