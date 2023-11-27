@@ -11,7 +11,7 @@
  * Return: Number of characters printed (excluding the null byte)
  */
 
-int _printf(const char *format, ...)
+int math(const char *format, ...)
 {
 	va_list args;
 	int num_print = 0;
